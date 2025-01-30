@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <style>
+            t {
+                font-size: 50px;
+            }
+            div {
+                text-align: center;
+            }
+        </style>
+        <meta http-equiv="refresh" content="1"/>
+    </head>
+    <body>
+        <div>
+            <t id="greeting">Good day</t>
+            <h1 id="time"></h1>
+            <script>
+                const time = new Date().getHours();
+                if (time < 12) {
+                    document.getElementById("greeting").innerText = "Good morning";
+                }
+                if (time > 12 && time < 18) {
+                    document.getElementById("greeting").innerText = "Good afternoon";
+                }
+                if (time > 18 && time <= 23) { 
+                    document.getElementById("greeting").innerText = "Good evening";
+                }
+                document.getElementById("time").innerText = "The time is "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds();
+            </script>
+        </div>
+    </body>
+</html>

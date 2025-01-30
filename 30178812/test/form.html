@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Do You Like Mangoes? 🥭</title>
+    <style>
+        /* Make it look nice */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #FF9F1C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #FF8C00;
+        }
+
+        h2 {
+            color: #FF8C00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>🥭 Mango Preference Survey 🥭</h2>
+        <form method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">What's your name?</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">When were you born?</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Do you like mangoes?</label>
+                <div class="radio-group">
+                    <input type="radio" id="yes" name="likes_mango" value="yes" required>
+                    <label for="yes">Yes! 😋</label>
+
+                    <input type="radio" id="no" name="likes_mango" value="no">
+                    <label for="no">No 😢</label>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Make sure the form is filled out correctly
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+
+            if (name.trim() === '') {
+                alert('Please enter your name!');
+                return false;
+            }
+
+            if (dob === '') {
+                alert('Please tell us when you were born!');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
