@@ -1,0 +1,1 @@
+print(len(usr = input("Enter a string")))
