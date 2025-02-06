@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: 1Fr 1Fr 2Fr;
+                grid-template-rows: 1Fr 2Fr;
+                gap: 10px;
+            }
+            .name {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row: 1;
+                font-size: 50px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-align: center;
+                border-style: solid;
+            }
+            .information {
+                grid-column: 1;
+                grid-row: 2;
+                border-style: solid;
+            }
+            .misc {
+                grid-column: 2;
+                grid-row: 2;
+                text-align: center;
+                border-style: solid;
+            }
+            .image {
+                grid-column-start: 3;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 3;
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="name">
+                Hotel
+            </div>
+            <div class="information">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor nisl eu lacinia condimentum. Aenean sollicitudin, felis vel posuere ornare, justo risus ultricies tortor, venenatis dignissim augue metus sit amet dolor. Praesent sollicitudin lacus eu aliquet hendrerit. Phasellus sollicitudin nisi eget ligula luctus, id rutrum arcu tincidunt. Nulla eget sem pharetra, auctor urna in, viverra orci. Curabitur tincidunt condimentum orci id sagittis. Fusce venenatis eu tortor et consectetur. Nulla sem orci, aliquet quis vestibulum ut, molestie eu ex. Nam imperdiet posuere ante in rutrum. Cras vel fermentum est, non sagittis purus. 
+            </div>
+            <div class="misc">
+                Prices<br>
+                Daily<br>
+                Working week<br>
+                Weekend<br>
+                Long stay<br>
+            </div>
+            <div class="image">
+                <img src="assets/Cube.jpg" width="250px" height="250px" />
+            </div>
+        </div>
+    </body>
+</html>

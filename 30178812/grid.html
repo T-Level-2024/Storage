@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: 1Fr 1Fr 2Fr;
+                grid-template-rows: 1Fr 1Fr 1Fr;
+                gap: 10px;
+            }
+            .green {
+                background-color: green;
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+            .blue {
+                background-color: blue;
+            }
+            .yellow {
+                background-color: yellow;
+                grid-column-start: 3;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 4;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="green">
+                Grid
+            </div>
+            <div class="blue">
+                Grid
+            </div>
+            <div class="blue">
+                Grid
+            </div>
+            <div class="blue">
+                Grid
+            </div>
+            <div class="blue">
+                Grid
+            </div>
+            <div class="yellow">
+                Grid
+            </div>
+        </div>
+    </body>
+</html>
