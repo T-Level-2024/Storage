@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            .container {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: 100px;
+                border-style: solid;
+                background-color: aqua;
+            }
+            .newgrid {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            .newgrid2 {
+                grid-row: 2;
+                grid-column: 2;
+            }
+            .text {
+                font-size: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="newgrid">
+                <form action="navbar1.html">
+                    <input type="submit" value="Navbar item 1">
+                </form>
+            </div>
+            <div class="newgrid2">
+                <form action="navbar2.html">
+                    <input type="submit" value="Navbar item 2">
+                </form>
+            </div>
+        </div>
+        <div class="text" style="text-align: center;">
+            This is navbar page 2.
+        </div>
+    </body>
+</html>
