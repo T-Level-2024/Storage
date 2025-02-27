@@ -1,3 +1,5 @@
+import { pi } from "./utils.js";
+console.log(pi);
 console.log("This is working.");
 let message = "Hello, Javascript";
 const author = "Author";
@@ -41,6 +43,14 @@ switch(day){
         break;
 };
 
-function onmybuttonClick(){
-
-};
+const mybutton = document.getElementById("mybutton");
+const input = document.getElementById("textinput");
+const output = document.getElementById("paragraph");
+mybutton.addEventListener("click",() => {
+    //mybutton.innerText = input.value;
+    let name = input.value
+    if(name){
+        //console.log(`Hello, $(input.value)`)
+        output.innerText = `Hello, ${name}`
+    }
+})
