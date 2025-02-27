@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .bodystyle {
+                background-color: aqua;
+            }
+            .divstyle {
+                background-color: lightblue;
+            }
+        </style>
+        <script src="script.js"></script>
+    </head>
+    <body id="element1">
+        <div class="bodystyle">
+            This is the body.
+        </div>
+        <div id="divelement" class="divstyle">
+            This is a changeable div.
+        </div>
+        <button onClick="document.getElementById('divelement').innerText = 'This div was changed.'">
+            This button will change the div.
+        </button>
+        <button onClick="alert('This is an alert.')">This is a button</button>
+        <button id="mybutton">My button</button>
+        <input type="text" id="textinput" placeholder="Enter text here">
+    </body>
+</html>
