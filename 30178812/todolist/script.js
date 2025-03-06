@@ -13,20 +13,48 @@ let tasks = [];
 
 // make a function calle updateTaskList()
 
+function removeEventListeners() {
+    let element;
+    for (let i = 0; i<tasks.length; i++) {
+        element = document.getElementById(`L${i}R`);
+        if(element) {
+            element.replaceWith(element.cloneNode(true));
+            console.log(`Replaced L${i}R`)
+        }
+    }
+}
+
 function updateTaskList() {
-    list.innerHTML = "";
+    if (list.innerHTML !== "") {
+        removeEventListeners()
+        list.innerHTML = "";
+    }
     console.log(tasks);
     let newbutton;
+    let index;
     for (let i=0; i<tasks.length; i++) {
-        if(tasks[i][1]){
-            list.innerHTML += `<li id="L${i}"><input id="L${i}I" type="text" placeholder="New text here"><button id="L${i}S">Submit</button><button id="L${i}R">Remove</button></li>`;
-        } else {
-            list.innerHTML += `<li id="L${i}">${tasks[i][0]} <button id="L${i}E">Edit</button><button id="L${i}R">Remove</button></li>`;
-            newbutton = document.getElementById(`L${i}E`);
-            newbutton.addEventListener("click", () => enableEditing(Number(`${i}`)));
-        }
-        newbutton = document.getElementById(`L${i}R`);
-        newbutton.addEventListener("click", () => removeItem(Number(`${i}`)));
+        index = i;
+        console.log(`updateTaskList(): I(${index}) task(${tasks[index]})`);
+        if(tasks[i][1]){ // Input box, submit, remove
+            list.innerHTML += `<li id="L${index}"><input id="L${index}I" type="text" placeholder="New text here"><button id="L${index}S">Submit</button><button id="L${index}R">Remove</button></li>`;
+            newbutton = document.getElementById(`L${index}S`);
+            setInterval(50);
+            console.log(newbutton);
+            newbutton.addEventListener("click", () => replaceItem(Number(`${index}`), document.getElementById(`L${index}I`).value));
+            console.log("updateTaskList(): Submit event listener applied");
+        } else { // Item, edit, remove
+            list.innerHTML += `<li id="L${i}">${tasks[index][0]} <button id="L${index}E">Edit</button><button id="L${index}R">Remove</button></li>`;
+            newbutton = document.getElementById(`L${index}E`);
+            setInterval(50);
+            console.log(newbutton);
+            newbutton.addEventListener("click", () => enableEditing(Number(`${index}`)));
+            console.log("updateTaskList(): Edit event listener applied");
+        };
+        newbutton = document.getElementById(`L${index}R`);
+        setInterval(50);
+        console.log(newbutton);
+        newbutton.addEventListener("click", () => removeItem(Number(`${index}`)));
+        console.log("updateTaskList(): Remove event listener applied");
     };
 };
 
@@ -35,11 +63,19 @@ function enableEditing(element) {
     updateTaskList();
 }
 
+// submit button functiojn
+// print to the console 
+
 function replaceItem(element, text) {
+    console.log(`L${element}: ${text}`);
+    tasks[element][0] = text;
+    tasks[element][1] = false;
+    updateTaskList();
 }
 
 function removeItem(element) {
-    tasks.pop(element);
+    console.log("removeItem() called");
+    tasks.splice(element, 1);
     updateTaskList();
 }
 
