@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+body {
+    background-color: cyan;
+}
+t {
+    font-size: 75px;
+}
+.border {
+    border: solid;
+}

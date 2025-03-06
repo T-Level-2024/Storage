@@ -27,16 +27,19 @@ list.addEventListener("click", (event) => {
         enableEditing(index);
     } else if (element.endsWith("S")) {
         replaceItem(index, document.getElementById(`L${index}I`).value);
-    }
-})
+    };
+});
 
 function updateTaskList() {
+    console.log("updateTaskList() called")
     list.innerHTML = "";
-    console.log(tasks);
     let index;
+    if (tasks.length === 0) {
+        list.innerHTML += "<li>No things to do.</li>";
+    };
     for (let i=0; i<tasks.length; i++) {
         index = i;
-        console.log(`updateTaskList(): I(${index}) task(${tasks[index]})`);
+        //console.log(`updateTaskList(): I(${index}) task(${tasks[index]})`);
         if(tasks[i][1]){ 
             // Input box, submit, remove
             // Any existing text is moved to the input box.
@@ -50,6 +53,7 @@ function updateTaskList() {
 };
 
 function enableEditing(element) {
+    console.log(`Now editing: L${element}`)
     tasks[element][1] = true;
     updateTaskList();
 }
@@ -58,6 +62,9 @@ function enableEditing(element) {
 // print to the console 
 
 function replaceItem(element, text) {
+    if(text.trim == "") {
+        return;
+    };
     console.log(`L${element}: ${tasks[element][0]} --> ${text}`);
     tasks[element][0] = text;
     tasks[element][1] = false;
@@ -65,11 +72,16 @@ function replaceItem(element, text) {
 }
 
 function removeItem(element) {
+    console.log(`Removing L${element} (${tasks[element][0]})`)
     tasks.splice(element, 1);
     updateTaskList();
 }
 
 addbutton.addEventListener("click", () => {
+    if(input.value == "") {
+        return;
+    };
+    console.log(`New item: L${(tasks.length)} (${input.value})`)
     tasks.push([input.value, false]);
     input.value = "";
     updateTaskList();
@@ -77,6 +89,9 @@ addbutton.addEventListener("click", () => {
 
 removebutton.addEventListener("click", () => {
     //list.removeChild(list.lastElementChild);
+    console.log("All items removed")
     list.innerHTML = ""
     tasks = [];
 });
+
+updateTaskList();
