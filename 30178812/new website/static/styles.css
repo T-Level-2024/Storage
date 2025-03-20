@@ -9,3 +9,6 @@
 table {
     border: solid;
 }
+td {
+    padding: 20px;
+}
