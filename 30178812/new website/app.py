@@ -1,14 +1,11 @@
-from flask import render_template, Flask, request
+from flask import render_template, Flask, request, redirect, url_for
 import flask
 import requests
 import time
 
 app = Flask(__name__)
 
-@app.route("/index.html")
-def redirect():
-    return redirect("127.0.0.1"+"/", code=302)
-
+@app.route("/index.html", methods=["GET", "POST"])
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
